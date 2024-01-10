@@ -1,0 +1,22 @@
+diff --git a/tests/vb2_common_tests.c b/tests/vb2_common_tests.c
+index 82cde185..f211254b 100644
+--- a/tests/vb2_common_tests.c
++++ b/tests/vb2_common_tests.c
+@@ -227,7 +227,7 @@ static void test_helper_functions(void)
+ 	}
+ 
+ 	{
+-		uint8_t *p = (uint8_t *)test_helper_functions;
++		uint8_t *p = (uint8_t *)&counter_calls_left;
+ 		TEST_EQ((int)vb2_offset_of(p, p), 0, "vb2_offset_of() equal");
+ 		TEST_EQ((int)vb2_offset_of(p, p+10), 10,
+ 			"vb2_offset_of() positive");
+@@ -236,7 +236,7 @@ static void test_helper_functions(void)
+ 	}
+ 
+ 	{
+-		uint8_t *p = (uint8_t *)test_helper_functions;
++		uint8_t *p = (uint8_t *)&counter_calls_left;
+ 		TEST_SUCC(vb2_verify_member_inside(p, 20, p, 6, 11, 3),
+ 			  "vb2_verify_member_inside() ok 1");
+ 		TEST_SUCC(vb2_verify_member_inside(p, 20, p+4, 4, 8, 4),

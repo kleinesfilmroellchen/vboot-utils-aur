@@ -12,13 +12,16 @@ license=('custom:chromiumos')
 depends=(libutil-linux openssl libzip flashrom-git)
 makedepends=(git libyaml trousers)
 source=(git+https://chromium.googlesource.com/chromiumos/platform/vboot_reference#branch=$_tag
-        disable-errors.patch)
+        disable-errors.patch
+        use-sensible-test-pointer.patch)
 sha256sums=('SKIP'
-            'b70df18064195e2fb9b2d5335ce788d2d1db49ab9981c63367089587c6d697ce')
+            '8c59c1fdc2b8cd0e76b2b9f1001a6ce611aa1e011fa88d6055c9578a089cc1fc'
+            '017b034e4d5dba3dbe2aeda920aa15cfa4fb64a1344aed410fa6113e13b19a24')
 
 prepare() {
   cd vboot_reference
   patch -p1 < ../disable-errors.patch
+  patch -p1 < ../use-sensible-test-pointer.patch
 }
 
 build() {

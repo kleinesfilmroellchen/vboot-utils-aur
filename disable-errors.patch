@@ -1,8 +1,8 @@
 diff --git a/Makefile b/Makefile
-index 9cfe65be..3bb64f98 100644
+index 8cc68e3c..bc45a962 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -125,7 +125,7 @@ endif
+@@ -125,12 +125,13 @@ endif
  # Provide default CC and CFLAGS for firmware builds; if you have any -D flags,
  # please add them after this point (e.g., -DVBOOT_DEBUG).
  DEBUG_FLAGS := $(if $(filter-out 0,${DEBUG}),-g -Og,-g -Os)
@@ -11,3 +11,9 @@ index 9cfe65be..3bb64f98 100644
  FIRMWARE_FLAGS := -nostdinc -ffreestanding -fno-builtin -fno-stack-protector
  COMMON_FLAGS := -pipe ${WERROR} -Wall -Wstrict-prototypes -Wtype-limits \
  	-Wundef -Wmissing-prototypes -Wno-trigraphs -Wredundant-decls -Wshadow \
+ 	-Wwrite-strings -Wstrict-aliasing -Wdate-time \
+ 	-ffunction-sections -fdata-sections \
++	-Wno-error=array-bounds \
+ 	-Wformat -Wno-format-security ${DEBUG_FLAGS}
+ 
+ # FIRMWARE_ARCH is defined if compiling for a firmware target
