@@ -1,5 +1,5 @@
 /pkg
 /src
-/vboot-utils-112.15359-1-x86_64.pkg.tar.zst
 /vboot_reference
+/*.tar.*
 /vboot_reference_dev
